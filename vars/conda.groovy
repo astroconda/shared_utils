@@ -1,6 +1,6 @@
 // Shared functionality for managing conda installation.
 
-def install(version="4.3.31", py_maj_version=3, install_dir="miniconda") {
+def install_conda(version="4.3.31", py_maj_version=3, install_dir="miniconda") {
 
     def CONDA_BASE_URL = "https://repo.continuum.io/miniconda"
     def conda_installers  = ["Linux-py2":"Miniconda2-${CONDA_INSTALLER_VERSION}-Linux-x86_64.sh",
