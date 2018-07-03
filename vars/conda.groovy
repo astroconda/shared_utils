@@ -3,10 +3,10 @@
 def install(version="4.3.31", py_maj_version=3, install_dir="miniconda") {
 
     def CONDA_BASE_URL = "https://repo.continuum.io/miniconda"
-    def conda_installers  = ["Linux-py2":"Miniconda2-${CONDA_INSTALLER_VERSION}-Linux-x86_64.sh",
-                             "Linux-py3":"Miniconda3-${CONDA_INSTALLER_VERSION}-Linux-x86_64.sh",
-                             "MacOSX-py2":"Miniconda2-${CONDA_INSTALLER_VERSION}-MacOSX-x86_64.sh",
-                             "MacOSX-py3":"Miniconda3-${CONDA_INSTALLER_VERSION}-MacOSX-x86_64.sh"]
+    def conda_installers  = ["Linux-py2":"Miniconda2-4.5.4-Linux-x86_64.sh",
+                             "Linux-py3":"Miniconda3-4.5.4-Linux-x86_64.sh",
+                             "MacOSX-py2":"Miniconda2-4.5.4-MacOSX-x86_64.sh",
+                             "MacOSX-py3":"Miniconda3-4.5.4-MacOSX-x86_64.sh"]
     def OSname = null
     def uname = sh(script: "uname", returnStdout: true).trim()
     if (uname == "Darwin") {
