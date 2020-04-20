@@ -21,7 +21,7 @@ def install(version="4.3.31", py_maj_version=3, install_dir="miniconda") {
 
     // Check for the availability of a download tool and then use it
     // to get the conda installer.
-    def dl_cmds = ["curl -OSs",
+    def dl_cmds = ["curl -LOSs",
                    "wget --no-verbose --server-response --no-check-certificate"]
     def dl_cmd = null
     def stat1 = 999
