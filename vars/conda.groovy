@@ -1,12 +1,12 @@
 // Shared functionality for managing conda installation.
 
-def install(version="4.3.31", py_maj_version=3, install_dir="miniconda") {
+def install(version="24.3.0-0", py_maj_version=3, install_dir="miniforge") {
 
-    def CONDA_BASE_URL = "https://repo.continuum.io/miniconda"
-    def conda_installers  = ["Linux-py2":"Miniconda2-4.5.4-Linux-x86_64.sh",
-                             "Linux-py3":"Miniconda3-4.5.4-Linux-x86_64.sh",
-                             "MacOSX-py2":"Miniconda2-4.5.4-MacOSX-x86_64.sh",
-                             "MacOSX-py3":"Miniconda3-4.5.4-MacOSX-x86_64.sh"]
+    def CONDA_BASE_URL = "https://ssb.stsci.edu/miniforge"
+    def conda_installers  = ["Linux-py2":"NOT_SUPPORTED",
+                             "Linux-py3":"Miniforge3-${version}-Linux-x86_64.sh",
+                             "MacOSX-py2":"NOT_SUPPORTED",
+                             "MacOSX-py3":"Miniforge3-${version}-MacOSX-x86_64.sh"]
     def OSname = null
     def uname = sh(script: "uname", returnStdout: true).trim()
     if (uname == "Darwin") {
@@ -44,7 +44,7 @@ def install(version="4.3.31", py_maj_version=3, install_dir="miniconda") {
     dl_cmd = dl_cmd + " ${CONDA_BASE_URL}/${conda_installer}"
     sh dl_cmd
 
-    // Install specific version of miniconda
+    // Install specific version of miniforge
     sh "bash ./${conda_installer} -b -p ${conda_install_dir}"
     return true
 }
